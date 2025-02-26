@@ -2,40 +2,71 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     color: #333;
-    text-align: center;
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #4CAF50;
+    background-color: #2c3e50;
     color: white;
-    padding: 20px 0;
+    padding: 10px 0;
+    text-align: center;
 }
 
 main {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     padding: 20px;
 }
 
-.products, .cart {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    margin: 20px;
+.store-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px; /* Add gap between items */
     padding: 20px;
-    width: 300px;
+    flex: 3;
 }
 
-.product {
+.item {
+    background-color: #34495e;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: left;
+    width: 100%;
     margin-bottom: 20px;
+    border: 2px solid white; /* Add white border */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.product img {
-    width: 100px;
-    height: 100px;
+.item h3 {
+    margin-top: 0;
+}
+
+.item img {
+    width: 150px;
+    height: 150px;
     object-fit: cover;
+    margin-right: 20px;
+}
+
+.item .info {
+    flex: 1;
+}
+
+.item button {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.item button:hover {
+    background-color: #1abc9c;
 }
 
 button {
@@ -52,13 +83,16 @@ button:hover {
     background-color: #45a049;
 }
 
-footer {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+.cart {
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 20px;
+    position: sticky;
+    top: 20px;
+    height: fit-content;
+    flex: 1;
+    border-left: 2px solid #ccc;
 }
 
 .cart ul {
@@ -69,4 +103,19 @@ footer {
 .cart ul li {
     border-bottom: 1px solid #ccc;
     padding: 10px 0;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Center the last item */
+.store-container > .item:last-child {
+    grid-column: span 2;
+    justify-self: center;
 }
